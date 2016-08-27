@@ -16,5 +16,19 @@ namespace TheWorld.Controllers.Web
             return View();
         }
 
+        public IActionResult Contact()
+        {
+
+         //   throw new InvalidOperationException("Błąd!");
+
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+
     }
 }
