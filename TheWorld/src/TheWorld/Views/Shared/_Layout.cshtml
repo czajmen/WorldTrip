@@ -11,7 +11,9 @@
 <head>
     <meta charset="utf-8" />
     <title>Świat! - @ViewBag.Title</title>
-
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootswatch/spacelab/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
@@ -30,7 +32,7 @@
     <div id="wrapper">
         <div id="main">
             <div>
-                <button id="sideBarToggle">Ukryj Menu</button>
+                <button id="sideBarToggle" class="btn btn-primary btn-sm"> <i class="fa fa-angle-left"></i> </button>
             </div>
 
             @RenderBody()
@@ -38,11 +40,12 @@
         </div>
 
         <div id="footer">
-            &copy; 2016 Kamil Czaja.
+           <p class="text-primary"> &copy;  2016 Kamil Czaja.</p>
         </div>
     </div>
 
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     @RenderSection("Scripts", false);
 
     <script type="text/javascript" src="~/js/site.js"></script>

@@ -24,16 +24,20 @@
 
 
     var $sideBarAndWrapper = $("#sidebar , #wrapper");
+    var $icon = $("#sideBarToggle i.fa");
 
     $("#sideBarToggle").on("click", function () {
         $sideBarAndWrapper.toggleClass("hide-sidebar");
 
         if($sideBarAndWrapper.hasClass("hide-sidebar"))
         {
-            $(this).text("Wyświetl Menu");
+            $icon.removeClass("fa-angle-left");
+            $icon.addClass("fa-angle-right");
         }
         else {
-            $(this).text("Ukryj Menu");
+            $icon.removeClass("fa-angle-right");
+            $icon.addClass("fa-angle-left");
+        
         }
 
     });
