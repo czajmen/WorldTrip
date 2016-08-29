@@ -12,7 +12,7 @@
     <meta charset="utf-8" />
     <title>Świat! - @ViewBag.Title</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/lib/bootswatch/spacelab/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootswatch/yeti/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 
@@ -22,7 +22,7 @@
         <img src="~/img/1467031011117.jpg" alt="headshot" class="headshot" />
         <span id="username">Kamil Czaja</span>
 
-        <ul class="menu">
+        <ul class="nav">
             <li class="active"><a asp-controller="App" asp-action="Index" >Home</a></li>
             <li><a asp-controller="App" asp-action="About" >O stronie</a></li>
             <li><a asp-controller="App" asp-action="Contact" >Kontakt</a></li>
@@ -30,17 +30,32 @@
 
     </div>
     <div id="wrapper">
-        <div id="main">
-            <div>
-                <button id="sideBarToggle" class="btn btn-primary btn-sm"> <i class="fa fa-angle-left"></i> </button>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><button id="sideBarToggle" class="btn btn-primary btn-sm"> <i class="fa fa-angle-left"></i> </button></li>
+                </ul>
+
+                <a asp-controller="App" asp-action="Index" class="navbar-brand">The World</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info"><i class="fa fa-save"></i>Save</a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info"><i class="fa fa-print"></i>Print</a>
+                    </li>
+                 </ul>
             </div>
+
+        </nav>
+        <div id="main" class="container-fluid">
 
             @RenderBody()
 
         </div>
 
-        <div id="footer">
-           <p class="text-primary"> &copy;  2016 Kamil Czaja.</p>
+        <div id="footer" class="container-fluid">
+            <div class="navbar navbar-inverse navbar-fixed-bottom"  > <h4 class="text-info text-center"> &copy;  2016 Kamil Czaja.</h4></div>
         </div>
     </div>
 
