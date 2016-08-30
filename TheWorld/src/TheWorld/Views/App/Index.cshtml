@@ -2,17 +2,25 @@
     ViewBag.Title = "Strona Domowa";
 }
 
-            <h3>Świat!</h3>
-            <p>W budowie!</p>
+ <div class="row">
+     <div class="col-md-6 col-xs-4">
+         <h1>Świat!</h1>
+         <p>W budowie!</p>
 
-            <form>
-                <div>
-                    <label>Data</label>
-                    <input />
-                </div>
-                <div>
-                    <label>Lokalizacja</label>
-                    <input />
-                </div>
-                <div> <input type="submit" value="Dodaj"></div>
-            </form>
+         <form>
+             <div class="form-group">
+                 <label>Data</label>
+                 <input  class="form-control"/>
+             </div>
+             <div class="form-group">
+                 <label>Lokalizacja</label>
+                 <input class="form-control" />
+             </div>
+             <div> <input type="submit" value="Dodaj" class="btn btn-success"></div>
+         </form>
+     </div>
+
+     <div class="col-md-6">
+         <h2>Mapa</h2>
+     </div>
+</div>
