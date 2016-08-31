@@ -1,5 +1,8 @@
 {
   "MailSettings": {
-    "ToAddress" :  "booa@o2.pl"
+    "ToAddress": "booa@o2.pl"
+  },
+  "ConnectionStrings": {
+    "WordlContextConnection":  "Server=(localdb)\\MSSQLLocalDB;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets:true;"
   }
 }
