@@ -3,6 +3,6 @@
     "ToAddress": "booa@o2.pl"
   },
   "ConnectionStrings": {
-    "WordlContextConnection":  "Server=(localdb)\\MSSQLLocalDB;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets:true;"
+    "WordlContextConnection":  "server=(localdb)\\MSSQLLocalDB;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets=true;"
   }
 }

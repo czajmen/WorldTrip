@@ -25,6 +25,8 @@ namespace TheWorld.Models
         {
             base.OnConfiguring(optionsBuilder);
 
+            var tmp = _config["ConnectionStrings:WordlContextConnection"];
+
             optionsBuilder.UseSqlServer(_config["ConnectionStrings:WordlContextConnection"]);
         }
 
