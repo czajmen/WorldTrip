@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
@@ -31,6 +32,12 @@ namespace TheWorld.Controllers.Web
 
         
         public IActionResult Index()
+        {         
+            return View();    
+        }
+
+        [Authorize]
+        public IActionResult Trips()
         {
             try
             {
@@ -39,12 +46,11 @@ namespace TheWorld.Controllers.Web
                 return View(data);
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError("Failed to get trips in index page");
                 return Redirect("/error");
             }
-          
         }
 
         public IActionResult Contact()
