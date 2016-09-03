@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace TheWorld.Controllers.Api
    // [Route("api/trips")]  Główna scieżka 
     public class TripsController : Controller
     {
+        private ILogger<TripsController> _logger;
         private IWorldRepository _repository;
 
-        public TripsController(IWorldRepository repositpory)
+        public TripsController(IWorldRepository repositpory, ILogger<TripsController> logger)
         {
             _repository = repositpory;
+            _logger = logger;
 
         }
         [HttpGet("api/trips")]
@@ -33,6 +36,7 @@ namespace TheWorld.Controllers.Api
             }
             catch(Exception ex)
             {
+                _logger.LogError("");
                 return BadRequest("Error");
             }
 
@@ -40,13 +44,22 @@ namespace TheWorld.Controllers.Api
         }
 
         [HttpPost("api/trips")]
-        public IActionResult Post([FromBody]TripViewModel theTrip)  // theTrip ma mapować to co przyjdzie w poście na Trip
+        public async Task<IActionResult> Post([FromBody]TripViewModel theTrip)  // theTrip ma mapować to co przyjdzie w poście na Trip
         {
             if (ModelState.IsValid)
             {
                 var newTrip = Mapper.Map<Trip>(theTrip);
 
-                return Created($"api/trips/{theTrip.Name}", Mapper.Map<TripViewModel>(newTrip));
+                if( await _repository.SaveChangesAsync())
+                {
+                    return Created($"api/trips/{theTrip.Name}", Mapper.Map<TripViewModel>(newTrip));
+                }
+                else
+                {
+                    return BadRequest("Faied to save changes to DB");
+                }
+
+          
             }
             else
             {

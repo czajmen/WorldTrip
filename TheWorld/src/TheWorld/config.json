@@ -3,6 +3,10 @@
     "ToAddress": "booa@o2.pl"
   },
   "ConnectionStrings": {
-    "WordlContextConnection":  "server=(localdb)\\MSSQLLocalDB;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets=true;"
+    "WordlContextConnection": "server=(localdb)\\MSSQLLocalDB;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  },
+  "Keys": {
+    "BingKey": "AeN7pWEAzHj8Z8Eb5N9A~5Xjv2DTDjlsppFg0YyWjxg~Attta2YrQdu5ipXvvb1GOs8dAZCRnHHrg8OnF9A6tayrgzRAaSVDNWFPUK-PzQEE"
+
   }
 }

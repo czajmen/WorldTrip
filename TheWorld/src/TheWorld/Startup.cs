@@ -39,7 +39,6 @@ namespace TheWorld
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddSingleton(_config);
 
             if (_env.IsDevelopment())
@@ -52,11 +51,9 @@ namespace TheWorld
             }
 
             services.AddDbContext<WorldContext>();
-
             services.AddScoped<IWorldRepository, WorldRepository>();
-
+            services.AddTransient<GeoCoordService>();
             services.AddTransient<WorldContextSeedData>();
-
             services.AddLogging();
 
             services.AddMvc()
@@ -72,6 +69,7 @@ namespace TheWorld
             Mapper.Initialize(config =>
             {
                 config.CreateMap<TripViewModel, Trip>().ReverseMap();
+                config.CreateMap<StopsViewModel, Stop>().ReverseMap();
 
             });
 
