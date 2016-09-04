@@ -23,7 +23,7 @@ namespace TheWorld.Models
 
         public async Task EnsureSeedData()
         {
-            if(await _userManager.FindByEmailAsync("kamil.czaja94@gmail.com") == null)
+            if (await _userManager.FindByEmailAsync("kamil.czaja94@gmail.com") == null)
             {
                 var user = new WorldUser()
                 {
@@ -32,8 +32,9 @@ namespace TheWorld.Models
 
                 };
 
-                await _userManager.CreateAsync(user, "polska94");
-            }
+                await _userManager.CreateAsync(user, "Polska94!");
+
+            } 
 
 
             if(!_context.Trips.Any())
@@ -130,9 +131,10 @@ namespace TheWorld.Models
                 _context.Stops.AddRange(WorldTrip.Stops);
 
 
-                await _context.SaveChangesAsync();
+             
             }
 
+            await _context.SaveChangesAsync();
         }
 
     }

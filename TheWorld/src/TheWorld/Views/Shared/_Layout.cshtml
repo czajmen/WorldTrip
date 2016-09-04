@@ -19,13 +19,26 @@
 </head>
 <body>
     <div id="sidebar">
-        <img src="~/img/1467031011117.jpg" alt="headshot" class="headshot" />
-        <span id="username">Kamil Czaja</span>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            <img src="~/img/1467031011117.jpg" alt="headshot" class="headshot" />
+            <span id="username">@User.Identity.Name</span>
+        }
+    
 
         <ul class="nav">
-            <li class="active"><a asp-controller="App" asp-action="Index" >Home</a></li>
-            <li><a asp-controller="App" asp-action="About" >O stronie</a></li>
-            <li><a asp-controller="App" asp-action="Contact" >Kontakt</a></li>
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+@if (User.Identity.IsAuthenticated)
+{
+            <li><a asp-controller="App" asp-action="Trips">Moje Wycieczki</a></li>
+}
+            <li><a asp-controller="App" asp-action="About">O stronie</a></li>
+            <li><a asp-controller="App" asp-action="Contact">Kontakt</a></li>
+@if (User.Identity.IsAuthenticated)
+{
+            <li><a asp-controller="Auth" asp-action="Logout">Wyloguj</a></li>
+}
         </ul>
 
     </div>
@@ -44,7 +57,7 @@
                     <li>
                         <a href="#" class="btn btn-sm btn-info"><i class="fa fa-print"></i>Print</a>
                     </li>
-                 </ul>
+                </ul>
             </div>
 
         </nav>
@@ -55,7 +68,7 @@
         </div>
 
         <div id="footer" class="container-fluid">
-            <div class="navbar navbar-inverse navbar-fixed-bottom"  > <h4 class="text-info text-center"> &copy;  2016 Kamil Czaja.</h4></div>
+            <div class="navbar navbar-inverse navbar-fixed-bottom"> <h4 class="text-info text-center"> &copy;  2016 Kamil Czaja.</h4></div>
         </div>
     </div>
 
