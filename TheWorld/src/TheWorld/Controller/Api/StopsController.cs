@@ -32,7 +32,7 @@ namespace TheWorld.Controllers.Api
         {
             try
             {
-                var trip = _repository.GetTripByName(tripName);
+                var trip = _repository.GetTripByName(tripName, User.Identity.Name);
 
                 return Ok(Mapper.Map<IEnumerable<StopsViewModel>>(trip.Stops.OrderBy(s => s.Order).ToList()));
             }
@@ -65,7 +65,7 @@ namespace TheWorld.Controllers.Api
                         newStop.Longitude = result.Longitude;
                     }
 
-                    _repository.AddStop(tripName, newStop);
+                    _repository.AddStop(tripName, newStop,User.Identity.Name);
 
                     if(await _repository.SaveChangesAsync())
                     {
