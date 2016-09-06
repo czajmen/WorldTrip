@@ -54,13 +54,15 @@ namespace TheWorld.Controllers.Api
 
                 newTrip.UserName = User.Identity.Name;
 
+                _repository.AddTrip(newTrip);
+
                 if( await _repository.SaveChangesAsync())
                 {
                     return Created($"api/trips/{theTrip.Name}", Mapper.Map<TripViewModel>(newTrip));
                 }
                 else
                 {
-                    return BadRequest("Faied to save changes to DB");
+                    return BadRequest("Faied to save changes to DB" +ModelState.ErrorCount + User.Identity.Name);
                 }
 
           

@@ -1,73 +1,25 @@
 ﻿
 
-@model IEnumerable<TheWorld.Models.Models.Trip>
-
 @{
     ViewBag.Title = "Strona Domowa";
 }
 
 @section Scripts{
+<script src="~/lib/underscore/underscore-min.js"></script>
 <script src="~/lib/angular/angular.min.js"></script>
+<script src="~/lib/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCYG6cFt5tMuFShvQn3xVzunE5VMrroHro"></script>
+<script src="~/lib/gmaps/gmaps.min.js"></script>
+<script src="~/lib/travelmap/travelmap.min.js"></script>
+<script src="~/js/simpleControls.js"></script>
 <script src="~/js/app-trips.js"></script>
 <script src="~/js/tripsController.js"></script>
+<script src="~/js/tripsEditorController.js"></script>
 }
-
+<link href="~/css/site.css" rel="stylesheet" />
 <div class="row" ng-app="app-trips">
 
-    <div ng-controller="tripsController as vm" class="col-md-6 col-md-offset-3">
-        
-        <table class="table table-responsive table-striped"  >
-            <tr ng-repeat="trip in vm.trips">
-                <td>
-                    {{trip.name}}
-                </td>
-                <td>
-                    {{trip.created | date}}
-                </td>
-                <td><a href="#" class="btn btn-sm btn-primary">Edytuj</a></td>
-            </tr>
-        </table>
-        
-        <form novalidate name="newTripForm">
-            <div class="form-group">
-                <label for="name">Nazwa Wycieczki</label>
-                <input class="form-control" type="text" id="name" name="name" />
-            </div>
-            <div class="form-group">
-               <input type="submit"  value="Dodaj" class="btn btn-success btn-sm" />
-            </div>
-        </form>
+    <div ng-view></div>
 
-    </div>
-
-    <div class="col-md-6 col-xs-4">
-        <h1>Świat!</h1>
-        <p>W budowie!</p>
-
-        <form>
-            <div class="form-group">
-                <label>Data</label>
-                <input class="form-control" />
-            </div>
-            <div class="form-group">
-                <label>Lokalizacja</label>
-                <input class="form-control" />
-            </div>
-            <div> <input type="submit" value="Dodaj" class="btn btn-success"></div>
-        </form>
-    </div>
-
-    <div class="col-md-6">
-        <h2>Mapa</h2>
-
-        <ul>
-            @foreach (var item in Model)
-            {
-                <li>@item.Name</li>
-            }
-
-        </ul>
-
-
-    </div>
+   
 </div>
